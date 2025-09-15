@@ -1,0 +1,319 @@
+@import "variables.scss";
+
+* {
+	margin: unset;
+	padding: unset;
+	box-sizing: border-box;
+	appearance: none;
+	background-color: unset;
+	text-decoration: none;
+	list-style-type: none;
+	text-wrap: pretty;
+	font: unset;
+	font-family: $font-body;
+	color: inherit;
+	border: unset;
+
+	@include media(null, md) {
+		font-size: 16px;
+	}
+
+	@include media(md) {
+		font-size: 24px;
+	}
+}
+
+body {
+	background-color: $color-light;
+	color: $color-dark;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+	font-family: $font-heading;
+	text-transform: uppercase;
+}
+
+h1,
+h2 {
+	@include media(null, md) {
+		font-size: 2rem;
+	}
+}
+
+h1 {
+	line-height: 100%;
+	margin: -0.4rem 0 -0.4rem;
+
+	@include media(null, lg) {
+		font-size: 2rem;
+	}
+	@include media(lg) {
+		font-size: 4rem;
+	}
+}
+
+h2 {
+	line-height: 115%;
+	margin: -0.3rem 0 -0.3rem;
+
+	@include media(md) {
+		font-size: 2.5rem;
+	}
+}
+
+p {
+	font-size: 1rem;
+}
+
+.button {
+	padding: 0.33rem 1rem;
+	background-color: $color-primary;
+	color: $color-dark;
+	border-radius: 2rem;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	width: fit-content;
+}
+
+.button-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.group {
+	display: flex;
+	gap: 1rem;
+
+	&--hz {
+		flex-direction: row;
+	}
+	&--vt {
+		flex-direction: column;
+	}
+
+	&.g0-5 {
+		gap: 0.5rem;
+	}
+	&.g1 {
+		gap: 1rem;
+	}
+	&.g1-5 {
+		gap: 1.5rem;
+	}
+	&.g2 {
+		gap: 2rem;
+	}
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: $breakpoint-lg;
+
+	&--grid {
+		display: grid;
+
+		@include media(null, sm) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		@include media(sm) {
+			grid-template-columns: repeat(24, 1fr);
+		}
+	}
+}
+
+.nav__wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.nav__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+}
+
+.nav__logo {
+	height: 4rem;
+}
+
+.nav__icons {
+	@include media(null, sm) {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.nav__links {
+	display: flex;
+
+	@include media(null, sm) {
+		display: none;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	@include media(sm) {
+		flex-direction: row;
+		gap: 2rem;
+	}
+}
+
+.hero__wrapper {
+	background-color: $color-dark;
+	color: $color-light;
+	padding-top: 6rem;
+	position: sticky;
+	top: 0;
+	z-index: 0;
+}
+
+.hero__container {
+	@include media(md) {
+		aspect-ratio: 16 / 9;
+		background-size: 100% auto;
+		background-image: url("./assets/hero--background.png");
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+}
+
+.hero__text {
+	row-gap: 1.5rem;
+	padding: 1rem 1rem 7.5%;
+
+	h1 {
+		grid-column: 1 / -1;
+	}
+
+	p,
+	.button {
+		grid-column: 1 / 8;
+	}
+}
+
+.hero__tagline {
+	grid-column: 1 / -5;
+	// min-width: 0;
+	max-width: 100%;
+	display: block;
+
+	&--hidden {
+		display: none;
+	}
+}
+
+.section__wrapper {
+	position: relative;
+	z-index: 1;
+	background-color: $color-light;
+
+	&:nth-child(odd) {
+		.section__text {
+			grid-column: 3 / 11;
+		}
+		.section__media {
+			grid-column: 13 / -1;
+		}
+	}
+	&:nth-child(even) {
+		.section__text {
+			grid-column: 15 / -3;
+		}
+		.section__media {
+			grid-column: 1 / 13;
+		}
+	}
+}
+
+.section__container {
+}
+
+.section__text,
+.section__media {
+	grid-row: 1;
+}
+
+.section__text {
+	display: flex;
+	justify-content: center;
+}
+
+.section__media {
+	img,
+	iframe {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+
+		@include media(sm, lg) {
+			aspect-ratio: 1 / 1;
+		}
+
+		@include media(lg) {
+			aspect-ratio: 4 / 3;
+		}
+	}
+}
+
+.footer__wrapper {
+	position: relative;
+	z-index: 1;
+	background-color: $color-dark;
+	color: $color-light;
+	padding: 2rem 0;
+}
+
+.footer__container {
+	padding: 0 1rem;
+}
+
+.footer__section {
+	grid-column: span 6;
+	padding-right: 1rem;
+}
+
+.footer__extra-info {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	img {
+		height: 2.5rem;
+	}
+}
