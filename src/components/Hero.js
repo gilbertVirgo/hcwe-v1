@@ -1,25 +1,61 @@
+import React, { useMemo, useState, useEffect } from "react";
 import Button from "./Button";
+import Bowser from "bowser";
+import HeroTaglineLetters from "./HeroTaglineLetters";
 
-export default ({ scrollDifference }) => {
+const noiseImages = [
+	require("../assets/noise-1.png"),
+	require("../assets/noise-5.png"),
+	require("../assets/noise-3.png"),
+	require("../assets/noise-2.png"),
+	require("../assets/noise-4.png"),
+];
+
+const Hero = ({ scrollDifference }) => {
+	const isSafari = useMemo(() => {
+		if (typeof window === "undefined") return false;
+		const browser = Bowser.getParser(window.navigator.userAgent);
+		return browser.getBrowserName() === "Safari";
+	}, []);
+
+	const [noiseIdx, setNoiseIdx] = useState(0);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setNoiseIdx((prev) => (prev + 1) % noiseImages.length);
+		}, 1000 / 10);
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
 		<header
-			className="hero__wrapper wrapper"
+			className={`hero__wrapper wrapper${
+				isSafari ? " hero__wrapper--safari-override" : ""
+			}`}
 			style={{
 				top: scrollDifference < 0 ? scrollDifference + "px" : "0",
 			}}
 		>
+			<div className="hero__noise-overlay">
+				{noiseImages.map((src, idx) => (
+					<img
+						key={idx}
+						src={src}
+						alt="noise"
+						draggable={false}
+						style={{
+							opacity: noiseIdx === idx ? 0.75 : 0,
+						}}
+					/>
+				))}
+			</div>
+
 			<div className="hero__container container">
 				<div className="hero__text container container--grid">
-					<h1 className="hero__tagline--hidden">
-						Hope for London
-						<br />
-						Hope for You
+					<h1 className="hidden">
+						Hope Church West End: Hope for London, Hope for You
 					</h1>
-					<img
-						src={require("../assets/hero--tagline-1.svg").default}
-						alt="Hope for London, Hope for You"
-						className="hero__tagline"
-					/>
+					{/* Large tagline images */}
+					<HeroTaglineLetters />
 
 					<p>
 						A new church family in the heart of the city, welcoming
@@ -31,3 +67,4 @@ export default ({ scrollDifference }) => {
 		</header>
 	);
 };
+export default Hero;

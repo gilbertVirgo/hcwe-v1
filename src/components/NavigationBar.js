@@ -11,7 +11,10 @@ export default () => {
 					</li>
 
 					<li>
-						<div className="nav__toggle hide--sm-up">☰</div>
+						<img
+							className="nav__toggle hide--sm-up"
+							src={require("../assets/nav--toggle.svg").default}
+						/>
 					</li>
 				</ul>
 				<ul className="nav__links">

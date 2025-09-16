@@ -28,18 +28,24 @@ export default (props) => {
 	return (
 		<section className="section__wrapper wrapper" id={`${props.id}`}>
 			<div className="section__container container container--grid">
+				<div className="section__title hide--sm-up">
+					<h2>{props.title}</h2>
+				</div>
 				<div className="section__media">{renderMedia(props.media)}</div>
 				<div className="section__text group group--vt g1-5">
-					<h2>{props.title}</h2>
+					<h2 className="section__title hide--sm-down">
+						{props.title}
+					</h2>
 					<div className="group group--vt g0-5"> {props.body}</div>
-					<div className="section__buttons button-group">
-						{props.buttons &&
-							props.buttons.map((button, index) => (
+					{props.buttons && props.buttons.length && (
+						<div className="section__buttons button-group">
+							{props.buttons.map((button, index) => (
 								<Button key={index} href={button.link}>
 									{button.text}
 								</Button>
 							))}
-					</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</section>
