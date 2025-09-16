@@ -5,9 +5,8 @@ import HeroTaglineLetters from "./HeroTaglineLetters";
 
 const noiseImages = [
 	require("../assets/noise-1.png"),
-	require("../assets/noise-5.png"),
-	require("../assets/noise-3.png"),
 	require("../assets/noise-2.png"),
+	require("../assets/noise-3.png"),
 	require("../assets/noise-4.png"),
 ];
 
@@ -22,7 +21,7 @@ const Hero = ({ scrollDifference }) => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setNoiseIdx((prev) => (prev + 1) % noiseImages.length);
-		}, 1000 / 10);
+		}, 1000 / 15);
 		return () => clearInterval(interval);
 	}, []);
 
@@ -37,13 +36,15 @@ const Hero = ({ scrollDifference }) => {
 		>
 			<div className="hero__noise-overlay">
 				{noiseImages.map((src, idx) => (
-					<img
+					<div
+						className="hero__noise-image"
 						key={idx}
 						src={src}
 						alt="noise"
 						draggable={false}
 						style={{
 							opacity: noiseIdx === idx ? 0.75 : 0,
+							backgroundImage: `url(${src})`,
 						}}
 					/>
 				))}

@@ -271,17 +271,23 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.75;
+	opacity: 0.125;
 	pointer-events: none;
+	background-color: transparent;
 
-	img {
+	background-color: $color-dark;
+
+	.hero__noise-image {
+		mix-blend-mode: difference;
+		background-repeat: repeat;
+		background-size: 512px;
 		transition: opacity 40ms linear;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		object-fit: fill;
+		object-fit: cover;
 		object-position: left top;
 		pointer-events: none;
 		z-index: 0;
