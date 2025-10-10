@@ -69,7 +69,12 @@ export default [
 				</p>
 			</>
 		),
-		buttons: [{ text: "Send us a message", link: "/contact" }], // This should open up a modal
+		buttons: [
+			{
+				text: "Send us a message",
+				link: "mailto:alex@thelondonproject.co.uk",
+			},
+		],
 	},
 	{
 		id: "directions",

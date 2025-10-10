@@ -414,12 +414,26 @@ img {
 			}
 		}
 	}
+
+	.section__title {
+		transition: transform 300ms ease;
+	}
+
+	&.is-focused .section__title {
+		@include media(null, sm) {
+			transform: translateX(4rem);
+		}
+	}
 }
 
 .section__container {
 	@include media(null, sm) {
 		row-gap: 1rem;
 		padding: 2rem 0;
+
+		.section__title {
+			position: relative;
+		}
 
 		.section__text,
 		.section__title {

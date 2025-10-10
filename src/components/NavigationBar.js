@@ -1,5 +1,6 @@
 import React from "react";
 import navLinks from "../data/navLinks";
+import ScrollyLink from "./ScrollyLink";
 
 export default () => {
 	let [isOpen, setIsOpen] = React.useState(false);
@@ -42,7 +43,9 @@ export default () => {
 					<ul className="nav__links--sm-up">
 						{navLinks.map((link, index) => (
 							<li key={index} className="nav__link">
-								<a href={link.href}>{link.text}</a>
+								<ScrollyLink href={link.href}>
+									{link.text}
+								</ScrollyLink>
 							</li>
 						))}
 					</ul>
@@ -55,7 +58,7 @@ export default () => {
 						className="nav__link"
 						onClick={() => setIsOpen(false)}
 					>
-						<a href={link.href}>{link.text}</a>
+						<ScrollyLink href={link.href}>{link.text}</ScrollyLink>
 					</li>
 				))}
 			</ul>
