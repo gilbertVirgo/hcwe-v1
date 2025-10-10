@@ -43,7 +43,7 @@ const Hero = ({ scrollDifference }) => {
 						alt="noise"
 						draggable={false}
 						style={{
-							opacity: noiseIdx === idx ? 0.75 : 0,
+							opacity: noiseIdx === idx ? 0.25 : 0,
 							backgroundImage: `url(${src})`,
 						}}
 					/>

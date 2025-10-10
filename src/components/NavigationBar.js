@@ -1,40 +1,64 @@
-export default () => {
-	return (
-		<nav className="nav__wrapper wrapper">
-			<div className="nav__container container">
-				<ul className="nav__icons">
-					<li>
-						<img
-							className="nav__logo"
-							src={require("../assets/nav--logo.svg").default}
-						/>
-					</li>
+import React from "react";
+import navLinks from "../data/navLinks";
 
-					<li>
-						<img
-							className="nav__toggle hide--sm-up"
-							src={require("../assets/nav--toggle.svg").default}
-						/>
+export default () => {
+	let [isOpen, setIsOpen] = React.useState(false);
+
+	return (
+		<>
+			<nav className="nav__wrapper wrapper">
+				<div className="nav__container container">
+					<ul className="nav__icons">
+						<li>
+							<img
+								className="nav__logo"
+								src={require("../assets/nav--logo.svg").default}
+							/>
+						</li>
+
+						<li
+							className="clickable"
+							onClick={() => setIsOpen(!isOpen)}
+						>
+							{isOpen ? (
+								<img
+									className="nav__toggle hide--sm-up"
+									src={
+										require("../assets/nav--close.svg")
+											.default
+									}
+								/>
+							) : (
+								<img
+									className="nav__close hide--sm-up"
+									src={
+										require("../assets/nav--toggle.svg")
+											.default
+									}
+								/>
+							)}
+						</li>
+					</ul>
+					<ul className="nav__links--sm-up">
+						{navLinks.map((link, index) => (
+							<li key={index} className="nav__link">
+								<a href={link.href}>{link.text}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</nav>
+			<ul className={"nav__links--sm-down " + (isOpen ? "is-open" : "")}>
+				{navLinks.map((link, index) => (
+					<li
+						key={index}
+						className="nav__link"
+						onClick={() => setIsOpen(false)}
+					>
+						<a href={link.href}>{link.text}</a>
 					</li>
-				</ul>
-				<ul className="nav__links">
-					<li className="nav__link">
-						<a href="#sundays">Sundays</a>
-					</li>
-					<li className="nav__link">
-						<a href="#about">About</a>
-					</li>
-					<li className="nav__link">
-						<a href="#team">Team</a>
-					</li>
-					<li className="nav__link">
-						<a href="#contact">Contact</a>
-					</li>
-					<li className="nav__link">
-						<a href="#directions">Directions</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+				))}
+			</ul>
+		</>
 	);
 };
