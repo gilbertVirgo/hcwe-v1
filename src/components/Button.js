@@ -1,8 +1,10 @@
-export default ({ children, ...props }) => {
+import ScrollyLink from "./ScrollyLink";
+
+export default ({ children, href, ...props }) => {
 	return (
-		<a className="button" {...props}>
+		<ScrollyLink className="button" href={href} {...props}>
 			{children}
 			<img src={require("../assets/button--arrow.svg").default} />
-		</a>
+		</ScrollyLink>
 	);
 };

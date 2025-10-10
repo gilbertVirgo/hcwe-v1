@@ -1,6 +1,6 @@
-export default ({ children, href }) => {
+export default ({ children, href, ...props }) => {
 	let handleClick = (e) => {
-		e.preventDefault();
+		if (href.startsWith("#")) e.preventDefault();
 
 		let targetSection = document.querySelector(href);
 
@@ -19,12 +19,12 @@ export default ({ children, href }) => {
 				window.addEventListener("scroll", scrollListener, {
 					once: true,
 				}),
-			1000
+			1500
 		);
 	};
 
 	return (
-		<a href={href} onClick={handleClick}>
+		<a {...props} href={href} onClick={handleClick}>
 			{children}
 		</a>
 	);
