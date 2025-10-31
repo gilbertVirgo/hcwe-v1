@@ -45,11 +45,8 @@ export default [
 		body: (
 			<>
 				<p>
-					Pastor Alex Brito leads Hope Church with a heart for London.
-				</p>
-				<p>
-					Alongside a committed team, he seeks to help people
-					encounter Jesus and find lasting hope.
+					Pastor Alex Brito, alongside evangelist and pastoral worker
+					Tim Gardner, leads Hope Church.
 				</p>
 			</>
 		),

@@ -12,9 +12,9 @@ export default [
 			},
 			{
 				text: "YouTube",
-				href: "https://www.youtube.com/@hopechurchwestend",
+				href: "https://www.youtube.com/channel/UCovmFF0nZ1PK2ov9w0bqoNQ",
 			},
-			{ text: "Email", href: "mailto:alex@hopechurchwestend.com" },
+			{ text: "Email", href: "mailto:hello@hopewestend.life" },
 		],
 	},
 	{
@@ -41,9 +41,14 @@ export default [
 	{
 		title: "Associates",
 		links: [
-			{ text: "The London Project", href: "" },
-			{ text: "Redeemer City to City", href: "" },
-			{ text: "Grace Baptist South England", href: "" },
+			{
+				text: "The London Project",
+				href: "https://thelondonproject.co.uk/",
+			},
+			{
+				text: "Grace Baptist Association",
+				href: "https://gracebaptists.org/",
+			},
 		],
 	},
 ];

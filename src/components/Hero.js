@@ -59,7 +59,7 @@ const Hero = ({ scrollDifference }) => {
 					<HeroTaglineLetters />
 
 					<p>
-						A new church family in the heart of the city, welcoming
+						A church family in the heart of the city, welcoming
 						people from every background to find life in Jesus.
 					</p>
 					<Button href="#sundays">Find out more</Button>

@@ -15,7 +15,9 @@ export default () => {
 						<ul className="footer__links group group--vt g0-5">
 							{section.links.map((link, linkIndex) => (
 								<li key={linkIndex} className="footer__link">
-									<a href={link.href}>{link.text}</a>
+									<a href={link.href} target="_blank">
+										{link.text}
+									</a>
 								</li>
 							))}
 						</ul>
