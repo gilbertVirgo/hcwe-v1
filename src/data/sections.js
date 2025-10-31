@@ -48,6 +48,10 @@ export default [
 					Pastor Alex Brito, alongside evangelist and pastoral worker
 					Tim Gardner, leads Hope Church.
 				</p>
+				<p>
+					Maria Amoako-Britten serves as our safeguarding
+					representative and administrator.
+				</p>
 			</>
 		),
 	},
