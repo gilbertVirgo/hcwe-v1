@@ -4,7 +4,7 @@ export default [
 		links: [
 			{
 				text: "Instagram",
-				href: "https://www.instagram.com/hopechurchwestend/",
+				href: "https://www.instagram.com/hope_church_west_end/",
 			},
 			{
 				text: "Facebook",
